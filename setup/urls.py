@@ -9,5 +9,6 @@ router.register(r'obras', views.ObraViewSet, basename='Obras')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path('file-obras/', views.ExportCSVObras.as_view(), name='file_obras')
+    path('file-obras/', views.ExportObrasToXLS.as_view(), name='file-obras'),
+    path('upload-obras/', views.UploadObraView.as_view(), name='upload-obras')
 ]

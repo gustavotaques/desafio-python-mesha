@@ -1,3 +1,4 @@
+from django.db.models import fields
 from rest_framework import serializers
 from .models import Obra
 from rest_framework.exceptions import ValidationError
@@ -14,3 +15,13 @@ class ObraSerializer(serializers.ModelSerializer):
     
     def create(self, validated_data):
         return super().create(validated_data)
+
+
+class ObraUploadSerializer(serializers.Serializer):
+    file = serializers.FileField()
+
+
+class SaveObraSerializer(serializers.Serializer):
+    class Meta:
+        model = Obra
+        fields = '__all__'
